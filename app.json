@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "StravaCar",
-    "slug": "StravaCar",
+    "name": "Revly",
+    "slug": "revly",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -13,17 +13,84 @@
       "backgroundColor": "#ffffff"
     },
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.theodez.revly",
+      "scheme": "revly",
+      "infoPlist": {
+        "NSLocationWhenInUseUsageDescription": "Cette app utilise la localisation pour tracer votre parcours en voiture.",
+        "NSLocationAlwaysAndWhenInUseUsageDescription": "Cette app utilise la localisation en arrière-plan pour tracer votre parcours en voiture.",
+        "NSLocationAlwaysUsageDescription": "Cette app utilise la localisation en arrière-plan pour tracer votre parcours en voiture.",
+        "NSMotionUsageDescription": "Cette app utilise les capteurs de mouvement pour optimiser le tracking GPS.",
+        "NSCameraUsageDescription": "Cette app utilise la caméra pour prendre des photos pendant votre trajet.",
+        "NSPhotoLibraryUsageDescription": "Cette app utilise la galerie photo pour sauvegarder vos photos de trajet.",
+        "ITSAppUsesNonExemptEncryption": false,
+        "LSApplicationQueriesSchemes": [
+          "instagram",
+          "instagram-stories"
+        ],
+        "UIBackgroundModes": [
+          "location",
+          "background-fetch",
+          "remote-notification"
+        ]
+      }
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
+        "foregroundImage": "./assets/icon.png",
         "backgroundColor": "#ffffff"
       },
-      "edgeToEdgeEnabled": true
+      "edgeToEdgeEnabled": true,
+      "permissions": [
+        "ACCESS_FINE_LOCATION",
+        "ACCESS_COARSE_LOCATION",
+        "ACCESS_BACKGROUND_LOCATION",
+        "FOREGROUND_SERVICE",
+        "FOREGROUND_SERVICE_LOCATION",
+        "CAMERA",
+        "WRITE_EXTERNAL_STORAGE",
+        "READ_EXTERNAL_STORAGE",
+        "RECORD_AUDIO"
+      ],
+      "package": "com.theodez.revly"
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "plugins": [
+      "expo-dev-client",
+      [
+        "expo-location",
+        {
+          "locationAlwaysAndWhenInUsePermission": "Cette app utilise la localisation pour tracer votre parcours en voiture.",
+          "locationAlwaysPermission": "Cette app utilise la localisation en arrière-plan pour tracer votre parcours en voiture.",
+          "locationWhenInUsePermission": "Cette app utilise la localisation pour tracer votre parcours en voiture.",
+          "isIosBackgroundLocationEnabled": true,
+          "isAndroidBackgroundLocationEnabled": true
+        }
+      ],
+      [
+        "expo-camera",
+        {
+          "cameraPermission": "Cette app utilise la caméra pour prendre des photos pendant votre trajet.",
+          "microphonePermission": "Cette app utilise le microphone pour enregistrer des vidéos pendant votre trajet."
+        }
+      ],
+      "expo-font",
+      [
+        "@rnmapbox/maps",
+        {
+          "RNMapboxMapsImpl": "mapbox"
+        }
+      ]
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "c0157764-7384-42cf-9f8d-bc566e9d1f3a"
+      },
+      "supabaseUrl": "https://lrtcmadewwrqqtqktnrv.supabase.co",
+      "supabaseAnonKey": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImxydGNtYWRld3dycXF0cWt0bnJ2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjE4NTgxOTksImV4cCI6MjA3NzQzNDE5OX0.DLqXu3v0EfAPM6QecWwSCAftL_GtIHZ_-r6oVm9PUkM"
+    },
+    "owner": "theodez"
   }
 }
