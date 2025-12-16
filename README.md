@@ -1,6 +1,6 @@
-# StravaCar - GPS Ride Tracking App
+# Revly - Social GPS Ride Tracking App
 
-A professional React Native app for tracking and sharing driving experiences.
+Revly is a polished React Native (Expo) app for tracking, analyzing and sharing your car trips with a social layer (feed, groups, challenges).
 
 ## 🚀 Quick Start
 
@@ -21,16 +21,16 @@ npx expo run:android
 ## 📁 Project Structure
 
 ```
-StravaCar/
-├── screens/          # UI screens (40 files)
-├── components/       # Reusable components
-├── services/         # Business logic & API calls
-├── contexts/         # React contexts (Auth, Tracking)
+.
+├── screens/          # UI screens (map, activity, auth, profile, settings, groups)
+├── components/       # Reusable UI components (sheets, cards, previews, etc.)
+├── services/         # Business logic & API calls (tracking, Supabase, map matching)
+├── contexts/         # React contexts (Auth, Tracking, TrackingEngine)
 ├── hooks/            # Custom React hooks
 ├── constants/        # Colors, Typography
-├── utils/            # Helper functions
-├── supabase/         # Database SQL files
-└── docs/             # Documentation
+├── utils/            # Helper functions & logging
+├── supabase/         # (Optional) local Supabase project files (NOT committed)
+└── docs/             # Documentation (Mapbox, features, usage)
 ```
 
 ## 🔑 Key Features
@@ -68,20 +68,22 @@ StravaCar/
 - `SignUpScreen` - User registration
 - `OnboardingScreen` - First-time user onboarding
 
-## 🔧 Configuration
+## 🔧 Configuration & Environment
 
-### Environment Variables
-Create a `.env` file:
-```
-MAPBOX_ACCESS_TOKEN=your_token_here
+All secrets are loaded from environment variables and **never** committed.
+
+Create a `.env` file in the `StravaCar/` folder (ignored by git):
+
+```bash
+# Supabase
+EXPO_PUBLIC_SUPABASE_URL=https://your-project.supabase.co
+EXPO_PUBLIC_SUPABASE_ANON_KEY=your_anon_key_here
+
+# Mapbox
+EXPO_PUBLIC_MAPBOX_TOKEN=your_public_mapbox_token_here
 ```
 
-### Supabase
-Configure in `config/supabase.js`:
-```javascript
-const supabaseUrl = 'your-project-url'
-const supabaseAnonKey = 'your-anon-key'
-```
+Supabase client is configured in `config/supabase.ts` and Mapbox in `App.tsx` / `services/MapMatchingService.ts` using these env vars.
 
 ## 📚 Documentation
 

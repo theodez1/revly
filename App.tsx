@@ -13,10 +13,18 @@ import { AuthProvider, useAuth } from './contexts/AuthContext';
 import { useCustomFonts } from './hooks/useCustomFonts';
 import Mapbox from '@rnmapbox/maps';
 
-// Configuration du token Mapbox depuis app.json
-import Constants from 'expo-constants';
-const MAPBOX_TOKEN = Constants.expoConfig?.extra?.mapboxAccessToken || 'pk.eyJ1IjoidGhlb2RleiIsImEiOiJjbWlucnN0aHAwdm10M2VzYmlhazRoYTJmIn0.CSxFH7X6P8dQk6CAzILUEA';
-Mapbox.setAccessToken(MAPBOX_TOKEN);
+// Configuration du token Mapbox via variables d'environnement
+// Utiliser EXPO_PUBLIC_MAPBOX_TOKEN pour qu'il soit injecté côté client.
+const MAPBOX_TOKEN = process.env.EXPO_PUBLIC_MAPBOX_TOKEN;
+
+if (!MAPBOX_TOKEN) {
+  // On log uniquement un warning, la carte peut continuer à fonctionner si un token est configuré ailleurs.
+  console.warn(
+    '⚠️ Aucun token Mapbox trouvé. Configurez EXPO_PUBLIC_MAPBOX_TOKEN dans votre fichier .env.',
+  );
+} else {
+  Mapbox.setAccessToken(MAPBOX_TOKEN);
+}
 
 // Screens - Organized by feature
 // Auth

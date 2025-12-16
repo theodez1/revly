@@ -87,10 +87,7 @@
     "extra": {
       "eas": {
         "projectId": "c0157764-7384-42cf-9f8d-bc566e9d1f3a"
-      },
-      "supabaseUrl": "https://lrtcmadewwrqqtqktnrv.supabase.co",
-      "supabaseAnonKey": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImxydGNtYWRld3dycXF0cWt0bnJ2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjE4NTgxOTksImV4cCI6MjA3NzQzNDE5OX0.DLqXu3v0EfAPM6QecWwSCAftL_GtIHZ_-r6oVm9PUkM",
-      "mapboxAccessToken": "pk.eyJ1IjoidGhlb2RleiIsImEiOiJjbWlucnN0aHAwdm10M2VzYmlhazRoYTJmIn0.CSxFH7X6P8dQk6CAzILUEA"
+      }
     },
     "owner": "theodez"
   }

@@ -1,18 +1,18 @@
-import Constants from 'expo-constants';
-
-// Récupérer le token depuis app.json ou variable d'environnement
-// Fallback sur le token hardcodé si nécessaire (dev uniquement)
-const MAPBOX_ACCESS_TOKEN = 
-  Constants.expoConfig?.extra?.mapboxAccessToken || 
-  process.env.EXPO_PUBLIC_MAPBOX_ACCESS_TOKEN ||
-  'pk.eyJ1IjoidGhlb2RleiIsImEiOiJjbWlucnN0aHAwdm10M2VzYmlhazRoYTJmIn0.CSxFH7X6P8dQk6CAzILUEA'; // Fallback pour dev
+// Récupérer le token depuis les variables d'environnement Expo
+// Utiliser EXPO_PUBLIC_MAPBOX_TOKEN pour qu'il soit disponible côté client.
+const MAPBOX_ACCESS_TOKEN = process.env.EXPO_PUBLIC_MAPBOX_TOKEN;
 
 // Log pour vérifier que le token est chargé (uniquement en dev)
 if (__DEV__) {
   if (MAPBOX_ACCESS_TOKEN) {
-    console.log('[MapMatching] ✅ Mapbox Access Token chargé:', MAPBOX_ACCESS_TOKEN.substring(0, 20) + '...');
+    console.log(
+      '[MapMatching] ✅ Mapbox Access Token chargé:',
+      MAPBOX_ACCESS_TOKEN.substring(0, 20) + '...',
+    );
   } else {
-    console.warn('[MapMatching] ⚠️ Aucun Mapbox Access Token trouvé');
+    console.warn(
+      '[MapMatching] ⚠️ Aucun Mapbox Access Token trouvé (EXPO_PUBLIC_MAPBOX_TOKEN manquant)',
+    );
   }
 }
 const MAPBOX_MATCHING_API_URL = 'https://api.mapbox.com/matching/v5/mapbox/driving';

@@ -31,7 +31,22 @@ yarn-error.*
 *.pem
 
 # local env files
+.env
 .env*.local
+.env.*
+
+# database / SQL dumps
+*.sql
+*.dump
+*.db
+*.sqlite
+
+# Supabase local project data (not needed in client repo)
+supabase/.branches
+supabase/.temp
+supabase/.env
+supabase/.postgres
+supabase/.db
 
 # typescript
 *.tsbuildinfo

@@ -1,14 +1,22 @@
 import { createClient } from '@supabase/supabase-js';
-import Constants from 'expo-constants';
 import { AppState } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 // Configuration Supabase depuis les variables d'environnement
-const supabaseUrl = Constants.expoConfig?.extra?.supabaseUrl || process.env.SUPABASE_URL;
-const supabaseAnonKey = Constants.expoConfig?.extra?.supabaseAnonKey || process.env.SUPABASE_ANON_KEY;
+// Utilise en priorité les variables Expo publiques (injectées au build),
+// puis retombe sur les variables classiques Node si besoin.
+const supabaseUrl =
+  process.env.EXPO_PUBLIC_SUPABASE_URL ||
+  process.env.SUPABASE_URL;
+
+const supabaseAnonKey =
+  process.env.EXPO_PUBLIC_SUPABASE_ANON_KEY ||
+  process.env.SUPABASE_ANON_KEY;
 
 if (!supabaseUrl || !supabaseAnonKey) {
-  console.warn('⚠️ Supabase URL ou Anon Key manquants. Configurez-les dans app.json ou .env');
+  console.warn(
+    '⚠️ Supabase URL ou Anon Key manquants. Configurez-les dans un fichier .env (EXPO_PUBLIC_SUPABASE_URL / EXPO_PUBLIC_SUPABASE_ANON_KEY).',
+  );
 }
 
 // Créer le client Supabase
