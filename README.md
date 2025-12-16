@@ -4,6 +4,12 @@ Revly est une application mobile React Native (Expo) qui permet de **suivre tes 
 
 ---
 
+## 🖼️ Aperçu du projet (screenshot)
+
+![Revly – aperçu du projet](assets/revly-preview.png)
+
+---
+
 ## 🚀 Démarrage rapide
 
 ```bash
@@ -128,14 +134,6 @@ eas build --platform ios
 ```bash
 eas build --platform android
 ```
-
----
-
-## 🖼️ Aperçu du projet (screenshot)
-
-Section dédiée pour afficher une **image du projet** (mockup, capture d’écran, visuel marketing) :
-
-![Revly – aperçu du projet](assets/revly-preview.png)
 
 ---
 
