@@ -135,13 +135,7 @@ eas build --platform android
 
 Section dédiée pour afficher une **image du projet** (mockup, capture d’écran, visuel marketing) :
 
-- Idéal pour les visiteurs GitHub / Product Hunt / portfolio
-- À remplacer par l’URL de ton image (hébergée sur GitHub, un CDN, ou autre)
-
-```markdown
-<!-- Exemple quand tu auras l’URL de ton image de projet -->
-<!-- ![Revly – aperçu du projet](https://ton-cdn-ou-github-user-content/ton-image.jpg) -->
-```
+![Revly – aperçu du projet](assets/revly-preview.png)
 
 ---
 
