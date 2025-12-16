@@ -1,78 +1,84 @@
-# Revly - Social GPS Ride Tracking App
+# Revly – Application sociale de tracking GPS voiture
 
-Revly is a polished React Native (Expo) app for tracking, analyzing and sharing your car trips with a social layer (feed, groups, challenges).
+Revly est une application mobile React Native (Expo) qui permet de **suivre tes trajets en voiture**, d’analyser tes stats et de les **partager avec une communauté** (feed, groupes, challenges).
 
-## 🚀 Quick Start
+---
+
+## 🚀 Démarrage rapide
 
 ```bash
-# Install dependencies
+# Installer les dépendances
 npm install
 
-# Start development server
+# Lancer le serveur de développement
 npx expo start
 
-# Run on iOS
+# Lancer sur iOS
 npx expo run:ios
 
-# Run on Android  
+# Lancer sur Android
 npx expo run:android
 ```
 
-## 📁 Project Structure
+---
 
-```
+## 📁 Structure principale du projet
+
+```bash
 .
-├── screens/          # UI screens (map, activity, auth, profile, settings, groups)
-├── components/       # Reusable UI components (sheets, cards, previews, etc.)
-├── services/         # Business logic & API calls (tracking, Supabase, map matching)
-├── contexts/         # React contexts (Auth, Tracking, TrackingEngine)
-├── hooks/            # Custom React hooks
-├── constants/        # Colors, Typography
-├── utils/            # Helper functions & logging
-├── supabase/         # (Optional) local Supabase project files (NOT committed)
-└── docs/             # Documentation (Mapbox, features, usage)
+├── screens/          # Écrans UI (carte, activité, auth, profil, réglages, groupes)
+├── components/       # Composants réutilisables (sheets, cartes, mini-maps, etc.)
+├── services/         # Logique métier & appels API (tracking, Supabase, map matching)
+├── contexts/         # Contextes React (Auth, Tracking, TrackingEngine)
+├── hooks/            # Hooks personnalisés
+├── constants/        # Couleurs, typo, constantes UI
+├── utils/            # Fonctions utilitaires & logging
+├── supabase/         # (optionnel) projet Supabase local (non versionné)
+└── docs/             # Documentation (Mapbox, guides d’utilisation)
 ```
 
-## 🔑 Key Features
+---
 
-- **GPS Tracking**: Real-time location tracking with Kalman filtering
-- **Background Tracking**: Reliable tracking even when app is in background
-- **Social**: Share rides, comment, like, follow friends
-- **Groups & Challenges**: Create groups and participate in challenges
-- **Offline Support**: Queue data when offline, sync when online
-- **Premium**: In-app purchases with paywall
+## 🔑 Fonctionnalités principales
 
-## 🛠️ Tech Stack
+- **Tracking GPS temps réel** avec gestion fine des points et segments
+- **Tracking en arrière‑plan** (TaskManager + services natifs)
+- **Feed social** des trajets, partage, commentaires, likes
+- **Groupes & challenges**: création de groupes, classements, défis
+- **Support offline**: mise en file des actions, synchro quand la connexion revient
+- **Freemium / Premium**: paywall et fonctionnalités avancées
 
-- **Framework**: React Native (Expo)
-- **Backend**: Supabase (PostgreSQL + Storage + Auth)
-- **Maps**: React Native Maps (Mapbox)
-- **State**: React Context API
-- **Icons**: Lucide React Native
-- **Navigation**: React Navigation
+---
 
-## 📱 Screens
+## 🛠️ Stack technique
 
-### Core
-- `MapScreenFull` - Main tracking screen
-- `RunsScreen` - Feed of rides
-- `HistoryScreen` - Personal ride history
-- `ProfileScreen` - User profile
+- **Framework**: React Native + Expo
+- **Backend**: Supabase (PostgreSQL, Storage, Auth)
+- **Cartographie**: Mapbox (`@rnmapbox/maps` + Map Matching API)
+- **État global**: React Context API (Auth, Tracking, TrackingEngine)
+- **Navigation**: React Navigation (stack + bottom tabs)
+- **UI / Icônes**: Tailwind‑style design + Lucide React Native
 
-### Social
-- `GroupsScreen` - Groups management
-- `ShareActivityScreen` - Share rides to social
+---
 
-### Auth
-- `LoginScreen` - User login
-- `SignUpScreen` - User registration
-- `OnboardingScreen` - First-time user onboarding
+## 📱 Écrans principaux
 
-## 🔧 Configuration & Environment
+- `MapScreenFull` – écran principal de tracking (live GPS, stats, segments)
+- `RunsScreen` – feed des trajets
+- `HistoryScreen` – historique personnel
+- `RunDetailScreen` – détail d’un trajet (stats, map, matching)
+- `ProfileScreen` / `UserProfileScreen` – profils utilisateur
+- `GroupsScreen`, `GroupDetailScreen`, `AllGroupsScreen` – groupes & challenges
+- `LoginScreen`, `SignUpScreen`, `OnboardingScreen` – auth & onboarding
+- `SettingsScreen`, `PaywallScreen` – réglages & premium
 
-All secrets are loaded from environment variables and **never** committed.
+---
 
-Create a `.env` file in the `StravaCar/` folder (ignored by git):
+## 🔧 Configuration & variables d’environnement
+
+Tous les secrets sont chargés via des **variables d’environnement** et ne sont **jamais commités**.
+
+Créer un fichier `.env` dans le dossier `StravaCar/` (ignoré par git) :
 
 ```bash
 # Supabase
@@ -83,42 +89,63 @@ EXPO_PUBLIC_SUPABASE_ANON_KEY=your_anon_key_here
 EXPO_PUBLIC_MAPBOX_TOKEN=your_public_mapbox_token_here
 ```
 
-Supabase client is configured in `config/supabase.ts` and Mapbox in `App.tsx` / `services/MapMatchingService.ts` using these env vars.
+- Supabase est configuré dans `config/supabase.ts`
+- Mapbox est configuré dans `App.tsx` et `services/MapMatchingService.ts`
 
-## 📚 Documentation
+---
 
-- [Implementation Plan](docs/implementation_plan.md) - Cleanup & professionalization
-- [Supabase README](supabase/README.md) - Database structure
-- [Archive](docs/archive/) - Historical documentation
+## 📚 Documentation interne
 
-## 🧹 Code Quality
+- `docs/MAPBOX_FEATURES_GUIDE.md` – guide des fonctionnalités Mapbox dans l’app
+- `docs/MAPBOX_CUSTOMIZATION.md` – personnalisation du style et des layers
+- `docs/EXEMPLE_UTILISATION_MAPBOX.md`, `docs/UTILISER_DEMO_MAPBOX.md` – exemples et notes
 
-This project is actively being cleaned and professionalized for App Store/Play Store submission.
+---
 
-**Recent improvements:**
-- ✅ Removed temporary Python scripts
-- ✅ Consolidated documentation
-- ✅ Organized Supabase files
-- ✅ Fixed font system errors
-- ✅ Added Lucide icons
-- ⏳ Reorganizing screens by feature (in progress)
+## 🧹 Qualité & état du projet
 
-## 🚢 Deployment
+Le projet est en cours de **polissage pour publication App Store / Play Store**.
+
+Améliorations récentes :
+- ✅ Refonte du moteur de tracking (TrackingEngineContext)
+- ✅ Rendu carte optimisé (segments, live line, Map Matching)
+- ✅ Nettoyage des fichiers JS doublons vers TS/TSX
+- ✅ Sécurisation des clés (tout passe par `.env`)
+- ⏳ Raffinement UX/UI & animations
+
+---
+
+## 🚢 Build & déploiement
 
 ### iOS
+
 ```bash
 eas build --platform ios
 ```
 
-### Android  
+### Android
+
 ```bash
 eas build --platform android
 ```
 
-## 📝 License
+---
 
-Private - All rights reserved
+## 👤 À propos du projet & photo
 
-## 👨‍💻 Developer
+Section dédiée pour la présentation perso / branding (à compléter) :
 
-Théo Dez
+- Nom : **Théo Dez**
+- Rôle : fondateur / développeur de Revly
+- Ici tu pourras ajouter ta photo (par ex. via un badge ou un visuel markdown une fois l’URL disponible) :
+
+```markdown
+<!-- Exemple quand tu auras l’URL de ta photo -->
+<!-- ![Théo Dez](https://ton-cdn-ou-github-user-content/ton-image.jpg) -->
+```
+
+---
+
+## 📝 Licence
+
+Projet privé – **tous droits réservés**.
