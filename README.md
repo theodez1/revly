@@ -131,17 +131,16 @@ eas build --platform android
 
 ---
 
-## 👤 À propos du projet & photo
+## 🖼️ Aperçu du projet (screenshot)
 
-Section dédiée pour la présentation perso / branding (à compléter) :
+Section dédiée pour afficher une **image du projet** (mockup, capture d’écran, visuel marketing) :
 
-- Nom : **Théo Dez**
-- Rôle : fondateur / développeur de Revly
-- Ici tu pourras ajouter ta photo (par ex. via un badge ou un visuel markdown une fois l’URL disponible) :
+- Idéal pour les visiteurs GitHub / Product Hunt / portfolio
+- À remplacer par l’URL de ton image (hébergée sur GitHub, un CDN, ou autre)
 
 ```markdown
-<!-- Exemple quand tu auras l’URL de ta photo -->
-<!-- ![Théo Dez](https://ton-cdn-ou-github-user-content/ton-image.jpg) -->
+<!-- Exemple quand tu auras l’URL de ton image de projet -->
+<!-- ![Revly – aperçu du projet](https://ton-cdn-ou-github-user-content/ton-image.jpg) -->
 ```
 
 ---
